@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cue AI Design System - Light Mode */
+    --background: 240 20% 98.4%; /* #FAFAFB Cloud */
+    --foreground: 212 33% 22%; /* #243447 Slate */
+    --card: 0 0% 100%;
+    --card-foreground: 212 33% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 33% 22%;
+    --primary: 212 33% 22%; /* Slate - primary buttons/text */
+    --primary-foreground: 240 20% 98.4%;
+    --secondary: 240 20% 98.4%; /* Cloud */
+    --secondary-foreground: 212 33% 22%;
+    --muted: 220 13% 91%; /* #D1D5DB Divider */
+    --muted-foreground: 212 33% 22% / 0.6; /* Text tertiary */
+    --accent: 80 77% 53%; /* #A6E22E Lime */
+    --accent-foreground: 212 33% 22%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%; /* Divider */
+    --input: 220 13% 91%;
+    --ring: 212 33% 22%;
+    --chart-1: 80 77% 53%; /* Lime */
+    --chart-2: 38 76% 56%; /* Amber */
+    --chart-3: 212 33% 22%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 6px;
+    
+    /* Cue AI Custom Colors */
+    --cue-slate: 212 33% 22%; /* #243447 */
+    --cue-cloud: 240 20% 98.4%; /* #FAFAFB */
+    --cue-amber: 38 76% 56%; /* #E6A23C */
+    --cue-lime: 80 77% 53%; /* #A6E22E */
+    --cue-divider: 220 13% 91%; /* #D1D5DB */
+    --cue-dark-bg: 215 30% 17%; /* #1F2A37 */
+    
+    /* Text colors */
+    --text-primary: 212 33% 22%;
+    --text-secondary: 212 33% 22% / 0.8;
+    --text-tertiary: 212 33% 22% / 0.6;
+  }
+  
+  .dark {
+    /* Cue AI Design System - Dark Mode */
+    --background: 215 30% 17%; /* #1F2A37 */
+    --foreground: 216 33% 93%; /* #E9EDF2 */
+    --card: 215 30% 20%;
+    --card-foreground: 216 33% 93%;
+    --popover: 215 30% 20%;
+    --popover-foreground: 216 33% 93%;
+    --primary: 80 77% 53%; /* Lime for primary actions in dark */
+    --primary-foreground: 212 33% 22%;
+    --secondary: 215 30% 22%;
+    --secondary-foreground: 216 33% 93%;
+    --muted: 215 30% 25%;
+    --muted-foreground: 216 33% 93% / 0.6;
+    --accent: 80 77% 53%; /* Lime */
+    --accent-foreground: 212 33% 22%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 30% 30%;
+    --input: 215 30% 30%;
+    --ring: 80 77% 53%;
+    --chart-1: 80 77% 53%;
+    --chart-2: 38 76% 56%;
+    --chart-3: 216 33% 93%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    /* Text colors - Dark mode */
+    --text-primary: 216 33% 93%;
+    --text-secondary: 216 33% 93% / 0.8;
+    --text-tertiary: 216 33% 93% / 0.6;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
+
+/* Workflow Section Animations */
+@keyframes flow-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes flow-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-flow-right {
+  animation: flow-right 2s linear infinite;
+}
+
+.animate-flow-down {
+  animation: flow-down 2s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 1s ease-in-out infinite;
+}
