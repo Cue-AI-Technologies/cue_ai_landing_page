@@ -62,22 +62,7 @@ export default function PricingSection() {
       </div>
       
       {/* Decorative accents - using lime/light variants for dark background */}
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/mD6Nzydo7FGBbw9EEcsD9.svg"
-        alt=""
-        className="absolute top-16 left-8 w-10 h-10 opacity-20"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/UemLUMOEDF4aepg09C8Vw.svg"
-        alt=""
-        className="absolute top-1/3 right-8 w-16 h-16 opacity-15"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/2UazR6x21MgAmv7ZDyVZp.svg"
-        alt=""
-        className="absolute bottom-24 left-12 w-24 h-12 opacity-15"
-      />
-      
+            
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-[40px] font-semibold text-white">

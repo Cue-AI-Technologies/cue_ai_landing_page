@@ -119,7 +119,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Cue AI Technologies, Inc. All rights reserved.
             </span>
             <a 
-              href="mailto:contact@rightoncue.ai" 
+              href="mailto:support@rightoncue.ai" 
               className={linkStyles}
             >
               contact@rightoncue.ai

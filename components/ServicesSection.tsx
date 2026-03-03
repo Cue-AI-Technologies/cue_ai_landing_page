@@ -3,29 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
-      {/* Decorative accents */}
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/mX6ePqNRf4fH4rz6EGaCX.svg"
-        alt=""
-        className="absolute top-1/2 -translate-y-1/2 right-8 w-14 h-20 opacity-15 dark:hidden"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/WlYTJraAA1E_EZqLrsESV.svg"
-        alt=""
-        className="absolute top-1/2 -translate-y-1/2 right-8 w-14 h-20 opacity-25 hidden dark:block"
-      />
-      
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/pjTKqOWRpTkovCptVrTF8.svg"
-        alt=""
-        className="absolute bottom-8 left-12 w-10 h-10 opacity-15 dark:hidden"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/mD6Nzydo7FGBbw9EEcsD9.svg"
-        alt=""
-        className="absolute bottom-8 left-12 w-10 h-10 opacity-25 hidden dark:block"
-      />
+    <section className="py-20 bg-background relative overflow-hidden">      
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <p className="text-xs text-cue-amber uppercase tracking-wider font-medium mb-3">

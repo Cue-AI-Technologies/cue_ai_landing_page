@@ -1,0 +1,11 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cue AI Icon Mark - Primary favicon (works on light backgrounds) -->
+  <!-- Background circle -->
+  <circle cx="180" cy="256" r="170" fill="#243447"/>
+  <!-- Inner white circle -->
+  <circle cx="180" cy="256" r="85" fill="#FAFAFB"/>
+  <!-- Arrow indicator pointing right -->
+  <path d="M185 260L420 100L416 412L185 260Z" fill="#243447"/>
+  <!-- Accent arc segment -->
+  <path d="M320 165C350 200 368 245 368 295C368 345 350 390 320 425L255 370C275 350 288 325 288 295C288 265 275 240 255 220L320 165Z" fill="#FAFAFB"/>
+</svg>

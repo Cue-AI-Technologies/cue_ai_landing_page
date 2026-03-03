@@ -26,28 +26,7 @@ export default function TrustSection() {
 
   return (
     <section className="py-20 bg-muted dark:bg-muted/30 relative overflow-hidden">
-      {/* Decorative accents */}
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/j09PgMq-s8XA2iN06hfcY.svg"
-        alt=""
-        className="absolute top-8 left-8 w-10 h-20 opacity-15 dark:hidden"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/_XI9DgAO6OHKjpDsPVcbN.svg"
-        alt=""
-        className="absolute top-8 left-8 w-10 h-20 opacity-25 hidden dark:block"
-      />
-      
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/4dtmUnuhWZFL8paSB-GgK.svg"
-        alt=""
-        className="absolute bottom-12 right-12 w-14 h-14 opacity-15 dark:hidden"
-      />
-      <img 
-        src="https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/nrpwbzp6w1i007zm1dfep5r3/zUyuKxGJrgUYx4JrREijJ.svg"
-        alt=""
-        className="absolute bottom-12 right-12 w-14 h-14 opacity-25 hidden dark:block"
-      />
+      {/* Decorative accents */}   
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">

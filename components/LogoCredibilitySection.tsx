@@ -1,47 +1,74 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 type LogoItem = {
   name: string;
-  src: string;
+  alt?: string;
+  // Theme-aware sources (preferred)
+  lightSrc?: string; // Used on dark backgrounds (light-colored logo)
+  darkSrc?: string;  // Used on light backgrounds (dark-colored logo)
+  // Fallback for single-source logos
+  src?: string;
 };
 
 const logos: LogoItem[] = [
   {
-    name: "Company 1",
-    src: "https://asset.brandfetch.io/id1B8_hyT0/idBdbqOltf.svg",
+    name: "Apify",
+    alt: "Apify logo",
+    lightSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/1Hc_aT-WoR3dhgttvRlQS.png",
+    darkSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/f_RRDAJ4IiMhjQjGKwxzr.png",
   },
   {
-    name: "Company 2",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/ab685adc-9dfb-45f6-b7b9-a47b14d7135c?pitch-bytes=8747&pitch-content-type=image%2Fsvg%2Bxml",
+    name: "Advanto",
+    alt: "Advanto logo",
+    lightSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+    darkSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+
   },
   {
-    name: "Company 3",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/e9cb158d-69ed-495b-8290-cd014bb9003a?pitch-bytes=2373&pitch-content-type=image%2Fsvg%2Bxml",
+    name: "TalentPilot",
+    alt: "TalentPilot logo",
+    src: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/0cFVSYdBjFuSEpb0L8V2t.png",
   },
-  {
-    name: "Company 4",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/a1aef588-b505-4096-8dba-69a4e6eb4bbc?pitch-bytes=4007&pitch-content-type=image%2Fsvg%2Bxml",
-  },
-  {
-    name: "Company 5",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/8a634f03-a4cf-4421-bd49-6c21fae17d47?pitch-bytes=9481&pitch-content-type=image%2Fsvg%2Bxml",
-  },
-  {
-    name: "Company 6",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/4a096966-3bc4-42b9-8c65-83036560d95f?pitch-bytes=268044&pitch-content-type=image%2Fpng",
-  },
-  {
-    name: "Company 7",
-    src: "https://pitch-assets-ccb95893-de3f-4266-973c-20049231b248.s3.eu-west-1.amazonaws.com/9d66d5c9-e472-4a0b-a76c-d8848de6926b?pitch-bytes=8351&pitch-content-type=image%2Fpng",
-  },
+  
 ];
+
+/**
+ * Gets the appropriate logo src based on current theme
+ */
+function getLogoSrc(logo: LogoItem, isDark: boolean): string | null {
+  if (isDark) {
+    return logo.lightSrc || logo.src || logo.darkSrc || null;
+  } else {
+    return logo.darkSrc || logo.src || logo.lightSrc || null;
+  }
+}
 
 export default function LogoCredibilitySection() {
   const [isPaused, setIsPaused] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  // Hydration-safe theme state for logos (prevents SSR/client src mismatches)
+  const [logoTheme, setLogoTheme] = useState<"light" | "dark">("light");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // next-themes resolves the theme after hydration; keep a stable default for SSR.
+  useEffect(() => {
+    if (!mounted) return;
+    if (resolvedTheme !== "light" && resolvedTheme !== "dark") return;
+
+    console.log("[LogoCredibilitySection] Theme resolved:", resolvedTheme);
+    setLogoTheme(resolvedTheme);
+  }, [mounted, resolvedTheme]);
+
+  const isDark = logoTheme === "dark";
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -49,13 +76,12 @@ export default function LogoCredibilitySection() {
 
     let animationId: number;
     let scrollPosition = 0;
-    const scrollSpeed = 0.35; // Slower for smoother feel
+    const scrollSpeed = 0.3;
 
     const animate = () => {
       if (!isPaused && scrollContainer) {
         scrollPosition += scrollSpeed;
         
-        // Reset position when we've scrolled one third (since it's tripled)
         const thirdWidth = scrollContainer.scrollWidth / 3;
         if (scrollPosition >= thirdWidth) {
           scrollPosition = 0;
@@ -73,28 +99,31 @@ export default function LogoCredibilitySection() {
     };
   }, [isPaused]);
 
-  // Safety: never render an <Image> without a real src.
-  const safeLogos = logos.filter((l) => {
-    const isValid = typeof l.src === "string" && l.src.trim().length > 0;
-    if (!isValid) console.warn("[LogoCredibilitySection] Skipping invalid logo", l);
-    return isValid;
-  });
+  const processedLogos = useMemo(() => {
+    return logos
+      .map((logo) => {
+        const src = getLogoSrc(logo, isDark);
+        if (!src || src.trim().length === 0) {
+          console.warn("[LogoCredibilitySection] Skipping logo with no valid src:", logo.name);
+          return null;
+        }
+        return {
+          ...logo,
+          resolvedSrc: src,
+        };
+      })
+      .filter((l): l is NonNullable<typeof l> => l !== null);
+  }, [isDark]);
 
-  // Triple logos for seamless infinite scroll with less visible repetition
-  const allLogos = [...safeLogos, ...safeLogos, ...safeLogos];
+  // Triple logos for seamless infinite scroll
+  const allLogos = useMemo(() => {
+    return [...processedLogos, ...processedLogos, ...processedLogos];
+  }, [processedLogos]);
 
   return (
-    <section className="py-16 overflow-hidden relative">
-      {/* Subtle radial glow for depth - barely visible */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 80% 50% at 50% 60%, hsl(var(--primary) / 0.03), transparent)"
-        }}
-      />
-      
+    <section className="py-20 sm:py-24 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-foreground/40 font-light mb-12">
+        <p className="text-center text-xs uppercase tracking-[0.2em] text-foreground/40 font-light mb-14">
           Trusted by Leading Sales Teams
         </p>
       </div>
@@ -104,34 +133,37 @@ export default function LogoCredibilitySection() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Gradient fade edges - wider for smoother transition */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-40 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-40 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        {/* Subtle gradient fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
         {/* Scrolling container */}
         <div 
           ref={scrollRef}
-          className="flex items-center gap-16 sm:gap-24 will-change-transform"
+          className="flex items-center gap-14 sm:gap-20 will-change-transform"
           style={{ width: "fit-content" }}
         >
           {allLogos.map((logo, index) => (
             <div
-              key={`${logo.src}-${index}`}
+              key={`${logo.name}-${index}`}
               className="shrink-0 group"
             >
               <div 
-                className="h-10 sm:h-12 w-auto relative transition-all duration-300 ease-out
-                           opacity-75 grayscale-[40%] 
-                           group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"
-                style={{ minWidth: "80px", maxWidth: "140px" }}
+                className="h-9 sm:h-11 w-auto relative transition-opacity duration-300 ease-out
+                           opacity-[0.55] grayscale
+                           group-hover:opacity-80 group-hover:grayscale-[30%]"
+                style={{ minWidth: "72px", maxWidth: "120px" }}
               >
-                <Image
-                  src={logo.src}
-                  alt={logo.name || "Customer logo"}
-                  width={120}
-                  height={48}
-                  className="object-contain h-full w-auto"
-                />
+                <div className={`transition-opacity duration-150 ${mounted ? "opacity-100" : "opacity-0"}`}>
+                  <Image
+                    src={logo.resolvedSrc}
+                    alt={logo.alt || logo.name || "Customer logo"}
+                    width={100}
+                    height={44}
+                    className="object-contain h-full w-auto"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           ))}
