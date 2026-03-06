@@ -4,25 +4,32 @@ import { useEffect, useState, useRef } from "react";
 
 const metrics = [
   {
-    value: 18,
+    value: 40,
     prefix: "+",
     suffix: "%",
-    label: "Meeting-to-Opportunity Conversion",
-    subtext: "Average across enterprise teams",
+    label: "increase in playbook completion",
+    subtext: "",
   },
   {
-    value: 35,
+    value: 75,
     prefix: "-",
     suffix: "%",
-    label: "CRM Admin Time",
-    subtext: "Time saved per rep, per week",
+    label: "CRM admin time",
+    subtext: "",
   },
   {
-    value: 22,
+    value: 90,
+    prefix: "",
+    suffix: "%+",
+    label: "CRM cleanliness",
+    subtext: "",
+  },
+  {
+    value: 1,
     prefix: "+",
-    suffix: "%",
-    label: "Rep Engagement Score",
-    subtext: "Measured via call analytics",
+    suffix: " hr",
+    label: "Get back more time for deals",
+    subtext: "",
   },
 ];
 
@@ -76,10 +83,10 @@ function AnimatedMetric({
 
   return (
     <div ref={ref} className="text-center px-4">
-      <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">
-        <span className="text-cue-lime">{prefix}</span>
+      <div className="text-4xl sm:text-5xl font-bold text-cue-slate mb-2">
+        <span>{prefix}</span>
         {displayValue}
-        <span className="text-cue-lime">{suffix}</span>
+        <span>{suffix}</span>
       </div>
       <div className="text-sm font-medium text-foreground mb-1">{label}</div>
       <div className="text-xs text-foreground/50">{subtext}</div>
@@ -91,7 +98,7 @@ export default function ImpactMetricsSection() {
   return (
     <section className="py-16 bg-background border-t border-b border-border/30">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
           {metrics.map((metric) => (
             <AnimatedMetric key={metric.label} {...metric} />
           ))}

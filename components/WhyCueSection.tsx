@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 
 const aiSignals = [
-  { icon: "✓", text: "Objection pattern detected" },
-  { icon: "✓", text: "Stakeholder priority identified" },
-  { icon: "✓", text: "Coverage gap flagged" },
-  { icon: "✓", text: "Next best question suggested" },
+  { icon: "✓", text: "Pain identified" },
+  { icon: "✓", text: "Suggested follow-up question" },
+  { icon: "✓", text: "Objection detected with response guidance" },
+  { icon: "✓", text: "Propose this next step" },
 ];
 
 function AnimatedAISignals() {
@@ -207,7 +207,7 @@ export default function WhyCueSection() {
           >
             <CapabilityCard
               title="Pre-Call Intelligence"
-              description="Context gathering, stakeholder research, deal signals — all surfaced before you join."
+              description="Show up prepared with conversations starters and trends, stakeholder, research, ad a call strategy."
             />
             <CapabilityCard
               title="Account Context"
@@ -222,11 +222,11 @@ export default function WhyCueSection() {
           >
             <CapabilityCard
               title="Live Conversation Analysis"
-              description="Real-time cues, objection detection, coverage gaps — so you never miss a beat."
+              description="Get cues in real time so your nail your playbook on every call and close more deals."
             />
             <CapabilityCard
               title="AI Intelligence Engine"
-              description="Signals synthesized in real time."
+              description="Get real-time guidance during live conversations — so you stay aligned to your playbook and close more deals."
               isAI
             />
           </LifecycleColumn>

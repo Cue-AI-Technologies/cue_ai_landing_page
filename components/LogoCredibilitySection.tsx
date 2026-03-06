@@ -18,22 +18,66 @@ const logos: LogoItem[] = [
   {
     name: "Apify",
     alt: "Apify logo",
-    lightSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/1Hc_aT-WoR3dhgttvRlQS.png",
-    darkSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/f_RRDAJ4IiMhjQjGKwxzr.png",
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/1Hc_aT-WoR3dhgttvRlQS.png",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/f_RRDAJ4IiMhjQjGKwxzr.png",
   },
   {
     name: "Advanto",
     alt: "Advanto logo",
-    lightSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
-    darkSrc: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
-
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
   },
   {
     name: "TalentPilot",
     alt: "TalentPilot logo",
     src: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/0cFVSYdBjFuSEpb0L8V2t.png",
   },
-  
+  {
+    name: "Customer 1",
+    alt: "Customer logo",
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/1Hc_aT-WoR3dhgttvRlQS.png",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/f_RRDAJ4IiMhjQjGKwxzr.png",
+  },
+  {
+    name: "Customer 2",
+    alt: "Customer logo",
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+  },
+  {
+    name: "Customer 3",
+    alt: "Customer logo",
+    src: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/0cFVSYdBjFuSEpb0L8V2t.png",
+  },
+  {
+    name: "Customer 4",
+    alt: "Customer logo",
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/1Hc_aT-WoR3dhgttvRlQS.png",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/f_RRDAJ4IiMhjQjGKwxzr.png",
+  },
+  {
+    name: "Customer 5",
+    alt: "Customer logo",
+    lightSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+    darkSrc:
+      "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/aWS6xVqscmGKQ0Y59tchI.svg",
+  },
+  {
+    name: "Customer 6",
+    alt: "Customer logo",
+    src: "https://assets.macaly-user-data.dev/if738gvrrpzsz730065jex23/i071e9v9cint3xgl1ff6u3vw/0cFVSYdBjFuSEpb0L8V2t.png",
+  },
 ];
 
 /**

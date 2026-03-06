@@ -136,14 +136,14 @@ export default function BeforeCallSection() {
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Pre-Call Research & Context</h3>
                 <p className="text-foreground/80 text-sm">
-                  Understand the account, the people, and the context before you join.
+                  Show up prepared with conversation starters, account trends, stakeholder insights, and a clear call strategy.
                 </p>
                 <div className="mt-3 text-sm text-foreground/80">
                   <p className="font-medium text-foreground mb-1">Cue brings together:</p>
                   <ul className="space-y-1 ml-4">
-                    <li>• Account and company context</li>
-                    <li>• Relevant past interactions</li>
-                    <li>• Signals that matter for this conversation</li>
+                    <li>• Trends and insights</li>
+                    <li>• Current company situation</li>
+                    <li>• Business priorities and pains</li>
                   </ul>
                 </div>
                 <p className="text-sm text-foreground/60 mt-2 italic">

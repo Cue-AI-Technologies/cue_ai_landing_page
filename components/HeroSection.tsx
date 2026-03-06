@@ -17,10 +17,6 @@ export default function HeroSection() {
           Cue prepares you before the call, supports you during, and handles the busywork after — so nothing slips through.
         </p>
         
-        <p className="mt-4 text-sm text-foreground/60">
-          Built for sales teams that move fast.
-        </p>
-        
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="https://app.rightoncue.ai"

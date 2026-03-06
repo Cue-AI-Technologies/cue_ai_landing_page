@@ -68,8 +68,8 @@ export default function CaseStudySection() {
           <div className="text-xs uppercase tracking-wider text-foreground/50 font-medium mb-2">
             Result
           </div>
-          <div className="text-2xl sm:text-3xl font-bold text-foreground">
-            <span className="text-cue-lime">+21%</span> increase in win rate
+          <div className="text-2xl sm:text-3xl font-bold text-cue-slate">
+            <span>+21%</span> increase in win rate
           </div>
           <div className="text-sm text-foreground/60 mt-1">
             over 2 quarters
